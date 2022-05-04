@@ -28,8 +28,25 @@ def solve_ver_1():
 
     recursion(list(), -1)
 
-solve_ver_1()
 
+def solve_ver_2():
+    def recursion(lst, here, cur_sum):
+        if len(lst) == MAX_DWARF and cur_sum == TARGET_SUM:
+            print(*lst, sep='\n')
+            sys.exit(0)
+        
+        for there in range(here + 1, MAX_IDX):
+            lst.append(dwarf[there])
+            recursion(lst, there, dwarf[there] + cur_sum)
+            lst.pop()
+
+    recursion(list(), -1, 0)
+
+def solve_ver_3():
+    for combi in combinations(dwarf, 7):
+        if sum(combi) == TARGET_SUM:
+            print(*list(combi), sep='\n')
+            break
 
 
 
