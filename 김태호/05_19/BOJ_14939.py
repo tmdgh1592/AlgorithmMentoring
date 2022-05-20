@@ -24,10 +24,14 @@ def toggle(y, x, lst):
 
 def any_switch_on(lst):
     for i in range(MAX_IDX + 1):
-        for j in range(MAX_IDX + 1):
-            if lst[i][j]:
-                return True
+        if lst[9][i]:
+            return True
     return False
+    # for i in range(MAX_IDX + 1):
+    #     for j in range(MAX_IDX + 1):
+    #         if lst[i][j]:
+    #             return True
+    # return False
 
 def toggle_remaining(lst):
     ret = 0
