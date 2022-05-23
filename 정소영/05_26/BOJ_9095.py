@@ -14,9 +14,6 @@ def f(n, goal):
         return None
 
     for i in range(1,4):
-        if i == 1 : print("i = 1", "n = ", n);
-        if i == 2 : print("i = 2", "n = ", n);
-        if i == 3 : print("i = 3", "n = ", n);
         f(n + i, goal)
 
 
