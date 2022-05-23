@@ -14,14 +14,14 @@ def least_cost(start, y, sum, cnt):
     for x in range(n):
         if arr[y][x] == 0: 
             continue
-
-        if res >= sum and arr[x][y] > 0: 
-            if not visited[y]: 
-                visited[y] = True
-                sum += arr[y][x]
+    
+        if not visited[y] and arr[y][x] > 0: 
+            visited[y] = True
+            sum += arr[y][x]
+            if res >= sum: 
                 least_cost(start, x, sum, cnt + 1)
-                visited[y] = False
-                sum -= arr[y][x]
+            visited[y] = False
+            sum -= arr[y][x]
 
 for y in range(n):
     least_cost(y, y, 0, 0)
