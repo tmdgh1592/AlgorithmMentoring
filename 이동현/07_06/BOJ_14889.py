@@ -1,5 +1,4 @@
-import sys
-sys.setrecursionlimit(1000000)
+
 MIS = lambda: map(int, input().rstrip().split())
 n = int(input())
 stat_table = [list(MIS()) for _ in range(n)]

@@ -1,5 +1,3 @@
-# dp[i] = dp[i-2] + 2
-# dp[i] = dp[i] + 1
 n = int(input())
 MOD = int(1e4) + 7
 dp = [0] * (int(1e3) + 1)
