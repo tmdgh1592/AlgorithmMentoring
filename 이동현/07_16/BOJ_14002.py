@@ -35,9 +35,11 @@ print(m)
 
 tp = []
 tp.append(dp[max_index][0])
-while(max_index > 0):
-    tp.append(dp[memory[max_index]][0])
+while(max_index > -1):
+    if dp[memory[max_index]][0] not in tp and memory[max_index] != -1:
+        tp.append(dp[memory[max_index]][0])
     max_index = memory[max_index]
 tp.sort()
 for i in tp:
     print(i, end = ' ')
+print()

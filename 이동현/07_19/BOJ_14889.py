@@ -1,30 +1,13 @@
+#python 사간 초과
+#Pypy3 맞았습니다...
 
 MIS = lambda: map(int, input().rstrip().split())
 n = int(input())
 stat_table = [list(MIS()) for _ in range(n)]
 
 stat_difference = float('inf')
-
 team_start = []
 team_link = []
-entire = set(range(n))
-temp = {}
-start_stat = 0
-link_stat = 0
-def select():
-    global stat_difference
-    global team_link
-    if len(team_start) == n//2:
-        temp = set(team_start)
-        team_link = list(entire - temp)
-        stat_difference = min(stat_difference, calc(team_start, team_link))
-        return None
-    for i in range(n):
-        if i in team_start:
-            continue
-        team_start.append(i)
-        select()
-        team_start.pop()
 
 def calc(team1, team2):
     sum_start = 0
@@ -37,5 +20,20 @@ def calc(team1, team2):
             sum_link += stat_table[team2[i]][team2[j]]
     return abs(sum_start - sum_link)
 
-select()
+for i in range(1 << n):
+    team_start = []
+    team_link = []
+    valid = 0
+    for j in range(n):
+        if i & (1 << j):
+            valid += 1
+    if valid != n / 2:
+        continue
+    for j in range(n):
+        if i & (1 << j):
+            team_start.append(j)
+        else:
+            team_link.append(j)
+    stat_difference = min(stat_difference, calc(team_start, team_link))
+
 print(stat_difference)
