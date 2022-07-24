@@ -42,4 +42,3 @@ while(max_index > -1):
 tp.sort()
 for i in tp:
     print(i, end = ' ')
-print()
