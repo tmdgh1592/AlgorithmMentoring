@@ -1,3 +1,4 @@
+#시간초과
 import sys
 from collections import deque
 import copy
