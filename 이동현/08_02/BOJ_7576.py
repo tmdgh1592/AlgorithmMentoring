@@ -36,5 +36,4 @@ for i in range(n):
             print(-1)
             exit()
         max_day = max(max_day, tomato[i][j])
-print(tomato)
 print(max_day - 1)
