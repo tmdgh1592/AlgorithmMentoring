@@ -41,5 +41,6 @@ for i in range(n):
             res += 1
             cnt_res.append(cnt)
 print(res)
+cnt_res.sort()
 for i in range(res):
     print(cnt_res[i])
