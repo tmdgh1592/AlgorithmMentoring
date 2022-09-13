@@ -1,0 +1,1 @@
+for c in input():print(c * sum(int(i) for i in str(ord(c))));
