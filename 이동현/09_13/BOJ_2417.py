@@ -8,7 +8,8 @@ n = int(input())
 lo = 0
 hi = n
 
-while lo <= hi:
+
+while lo < hi:
     mid = (lo + hi) // 2
 
     if mid * mid < n:

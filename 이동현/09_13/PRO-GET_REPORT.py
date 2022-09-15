@@ -17,7 +17,7 @@ def solution(id_list, report, k):
         report_list[name[1]].add(name[0])
         # cnt[name[0]] += 1
 
-    # print(report_list)
+    print(report_list)
     
     for reported, users in report_list.items():
         if len(users) >= k:

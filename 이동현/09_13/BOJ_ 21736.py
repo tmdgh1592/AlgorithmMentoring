@@ -1,4 +1,7 @@
+
+
 #무슨 포켓몬스터냐 학교에서 상하좌우로만 이동하게
+
 import sys
 from collections import deque
 sys.setrecursionlimit(1 << 14)
