@@ -1,4 +1,5 @@
-#인덱스 오류 ㅠㅠ
+import code
+import string
 import sys
 import re
 from collections import deque
@@ -10,23 +11,34 @@ n = MIS()
 
 str = input().rstrip()
 
-if 'C' not in  str:
-    print("NO OUTPUT")
-    exit()
-
 number = re.findall('[0-9]+', str)
 number = deque(map(int, number))
+# print(number)
 
 oper = re.findall('[A-Z]',str)
 oper = deque(oper)
 
+if 'C' not in str:
+    print("NO OUTPUT")
+    exit()
+
+if oper[-1] != 'C':
+    try:
+        a = int(str[-1])
+        # print(a)
+    except:
+        print("NO OUTPUT")
+        exit()
+
+
 while oper:
     operator_symbol = oper.popleft()
-    print("현재 연산자 :", operator_symbol)
+    # print("현재 연산자 :", operator_symbol)
     if operator_symbol != 'C':
         num1 = number.popleft()
         num2 = number.popleft()
-        print("숫자1: ",num1, "숫자2: ",num2)
+        
+        # print("숫자1: ",num1, "숫자2: ",num2)
     if operator_symbol == 'S':
         temp = num1 - num2
         number.appendleft(temp)
@@ -48,4 +60,7 @@ while oper:
         number.appendleft(temp)
     
     else:
-        print(number[0], end=" ")
+        if oper:
+            print(number[0], end=" ")
+        else:
+            print(number[0], end="")

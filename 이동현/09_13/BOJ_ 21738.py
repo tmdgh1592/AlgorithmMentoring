@@ -13,8 +13,6 @@ for _ in range(n-1):
     d[a].append(b)
     d[b].append(a)
 
-
-
 def bfs(start, target):
     visited = defaultdict(list)
     q = deque()
