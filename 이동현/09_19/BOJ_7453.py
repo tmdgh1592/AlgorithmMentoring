@@ -15,27 +15,17 @@ for i in range(n):
     C.append(c)
     D.append(d)
 
-# AB = defaultdict(int)
-# CD = defaultdict(int)
-
-# for i in range(n):
-#     for j in range(n):
-#         AB[A[i] + B[j]] += 1
-#         CD[C[i] + D[j]] += 1    
-
-# cnt = 0
-# for key, value in CD.items():
-#     if AB[-key] != 0:
-#         cnt += ((AB[-key]) *(value)) 
 AB = defaultdict(int)
+CD = defaultdict(int)
+
+for i in range(n):
+    for j in range(n):
+        AB[A[i] + B[j]] += 1
+        CD[C[i] + D[j]] += 1    
+
 cnt = 0
-for a in A:
-    for b in B:
-        AB[a + b] += 1
-    
-for c in C:
-    for d in D:
-        if -(c + d) in AB:
-            cnt += AB[-(c + d)]
+for key, value in CD.items():
+    if AB[-key] != 0:
+        cnt += ((AB[-key]) *(value)) 
 
 print(cnt)
