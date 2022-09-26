@@ -31,4 +31,4 @@ for i in c:
             s += di[-tmp]
 
 
-print(s)
+print(s) 
