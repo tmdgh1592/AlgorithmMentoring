@@ -60,7 +60,6 @@ ice_cnt = 0
 cnt = 0
 while ice_cnt < 2:
     visited = [[False for _ in range(m)] for _ in range(n)]
-    # ice_cnt = 0
     year += 1
     cnt += 1
     melt()
@@ -68,11 +67,5 @@ while ice_cnt < 2:
     # print("남은 얼음",ice)
     for i in ice:
         ice_cnt += dfs(i[0],i[1])
-        # print("year: ",year,"출력")
-        # for j in visited:
-        #     print(j)
         
-
-# print("Asdsd")
-# print(ice_cnt)
 print(year)
