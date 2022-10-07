@@ -1,0 +1,1 @@
+import sys;print(*list(map(lambda x : x[0], sorted([list(map(lambda x : int(x) if x.isdigit() else x, sys.stdin.readline().rstrip().split())) for _ in range(int(input()))], key=lambda x : (-x[1], x[2], -x[3], x[0])))), sep='\n')
