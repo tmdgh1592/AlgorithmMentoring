@@ -1,0 +1,18 @@
+#-*- coding:utf-8 -*-
+import sys
+
+sys.stdin = open('input.txt', 'r')
+input = sys.stdin.readline
+MIS = lambda: map(int, input().rstrip().split())
+
+n, k = MIS()
+coins = [int(input()) for _ in range(n)]
+dp = [0] * (k+1)
+dp[0] = 1
+1
+2
+for coin in coins:
+    for i in range(coin, k+1):
+        dp[i] += dp[i-coin]
+
+print(dp[k])
