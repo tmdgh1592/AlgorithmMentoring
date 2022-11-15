@@ -9,10 +9,8 @@ operator = {1 : sub, 2 : mul, 3 : div, 0 : add}
 
 def f(idx, res):
     if idx == n:
-        print("asdas")
-        print(res)
-        print("fin")
-        print(res, res)
+        print("조건만족", end="")
+        print("res 리턴:", res)
         return res, res
         
     max_val = -float('inf')
@@ -25,6 +23,7 @@ def f(idx, res):
             max_val = max(ret[0], max_val)
             min_val = min(ret[1], min_val)
             oper[i] += 1
+    print("max_val: ", max_val, "min_val: ", min_val)
     return max_val, min_val
 
 n = int(input())
