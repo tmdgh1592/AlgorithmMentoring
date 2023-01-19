@@ -17,12 +17,12 @@ vector<int> vec1, vec2;
 
 
 void check(int x){
-    int lo = vec1.front();
-    int hi = vec1.back();
+    int lo = 0;
+    int hi = n - 1;
 
     while(lo + 1 < hi){
         int mid = (lo + hi) >> 1;
-        
+        cout << "mid: " << vec1[mid] << endl;
         if(vec1[mid] == x){
             cout << "1" << endl;
             return;
@@ -51,6 +51,10 @@ int main(){
     for(auto& element: vec1) cin >> element;
     sort(vec1.begin(), vec1.end());
 
+    
+    for(auto& element: vec1) cout <<" " << element;
+    cout << endl;
+    
     cin >> m;
     vec2.resize(m);
 
