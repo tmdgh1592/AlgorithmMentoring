@@ -1,0 +1,14 @@
+{
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "iostream": "cpp",
+        "vector": "cpp",
+        "ios": "cpp",
+        "map": "cpp",
+        "random": "cpp",
+        "__split_buffer": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "string": "cpp"
+    }    
+}
