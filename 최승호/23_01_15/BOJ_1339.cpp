@@ -11,10 +11,12 @@
 using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
-typedef long long int lli;
 
 int n;
-vector<int> vec;
+
+vector<string> words;
+vector<int> alphas(26);
+
 
 int main(){
     FAST;
@@ -22,18 +24,28 @@ int main(){
     freopen("input.txt", "r", stdin);
 #endif
     cin >> n;
-    vec = vector<int>(n);
-    
-    rep(i, 0, n) {
-        string num;
-        cin >> num;
+    words = vector<string>(n);
+
+    for(auto& e : words) cin >> e;
+    for (auto& word : words) { // 단어 개수
+        int weight = 1;
+
+        for (int index = word.length() - 1; index >= 0; index--) { // 단어의 알파벳 만큼
+            alphas[word[index] - 'A'] += weight;
+            weight *= 10;
+        }
     }
 
-   for(auto e : vec) {
+    int res = 0;
+    int weight = 9;
+    sort(all(alphas), greater<int>());
+    for (auto& alpha : alphas) {
+        if(alpha != 0) {
+            res += alpha * weight;
+            weight -= 1;
+        }
+    }
 
-   }
-
-
-
+    cout << res;
     return 0;
 }
