@@ -13,14 +13,24 @@ typedef long long ll;
 typedef unsigned long long ull;
 
 const int MAX = 500'001;
-int n, m;
-int a, b, c, d;
+int n, m, cnt;
+int a, b;
 ll tree[MAX];
+ll money[MAX];
+int s[MAX], e[MAX];
+vector<int> adj[MAX];
+
+void f(int here) {
+    s[here] = ++cnt;
+    for (auto there : adj[here]) f(there);
+    e[here] = cnt;
+    return;
+}
 
 void add(int pos, ll val) {
     while (pos < MAX) {
         tree[pos] += val;
-        pos |= (pos & -pos);
+        pos += (pos & -pos);
     }
 }
 
@@ -47,21 +57,30 @@ int main(){
 #endif
 
     ll tmp;
-    cin >> n;
-    REP (i, 1, n) {
-        cin >> tmp;
-        range_add(i, i, tmp);
+    cin >> n >> m;
+    cin >> tmp;
+    money[1] = tmp;
+    REP (i, 2, n) {
+        cin >> money[i] >> tmp;
+        adj[tmp].pb(i);
     }
-    cin >> m;
+    f(1);
+    char ch;
+
+
+    REP (i, 1, n) {
+        range_add(s[i], s[i], money[i]);
+    }
 
     while (m--) {
-        cin >> a;
-        if (a & 1) {
-            cin >> b >> c >> d;
-            range_add(b, c, d);
+        cin >> ch;
+
+        if (ch == 'p') {
+            cin >> a >> b;
+            range_add(s[a] + 1, e[a], b);
         } else {
-            cin >> b;
-            cout << sum(b) << endl;
+            cin >> a;
+            cout << sum(s[a]) << endl;
         }
     }
 
