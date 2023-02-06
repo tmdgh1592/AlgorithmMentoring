@@ -23,7 +23,6 @@ constexpr bool ndebug = false;
 #define debugc(c) \
     if constexpr (!ndebug) { cout << "[DEBUG] "<< #c << ": "; for (const auto& elem : c) cout << elem << ", "; cout << '\n'; }
 
-
 typedef long long ll;
 typedef unsigned long long ull;
 
