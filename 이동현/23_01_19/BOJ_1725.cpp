@@ -37,12 +37,12 @@ ull dq(int left, int right){ //왼쪽 시작과 오른쪽 시작을 입력 받�
         //현재 오른쪽으로 이동할 수 있는 상태에서
         //  1) 왼쪽으로 이동할 수 없거나
         //  2) 왼쪽으로 이동한 높이보다 오른쪽으로 이동한 높이가 클 경우에는
-        if (hi < right && (lo == left || heights[lo - 1] < heights[hi + 1])) {
-            min_height = min(min_height, heights[++hi]);
-        } else {
-            min_height = min(heights[--lo], min_height);
-        }
-        /* 다음과 같은 경우는 틀렸습니다
+        // if (hi < right && (lo == left || heights[lo - 1] < heights[hi + 1])) {
+        //     min_height = min(min_height, heights[++hi]);
+        // } else {
+        //     min_height = min(heights[--lo], min_height);
+        // }
+        //다음과 같은 경우는 틀렸습니다
         if(lo < left){ //왼쪽으로 못가니까 오른쪽으로 이동
             min_height = min(min_height, heights[++hi]);
         }
@@ -55,7 +55,7 @@ ull dq(int left, int right){ //왼쪽 시작과 오른쪽 시작을 입력 받�
         else{
             min_height = min(min_height, heights[++hi]);
         }
-        */
+        
         res = max(res, (hi - lo + 1) * min_height);
     }   
     return res;
