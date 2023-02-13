@@ -49,7 +49,7 @@ int main(){
     cin >> n;
     vec1.resize(n);
     for(auto& element: vec1) cin >> element;
-    sort(vec1.begin(), vec1.end());
+    sort(all(vec1));
 
     
     for(auto& element: vec1) cout <<" " << element;
