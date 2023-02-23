@@ -12,21 +12,25 @@ using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
 
-const int MAX = 1'000'000;
-ll n;
+int MAX = 500000;
+ll n, res;
 ll tree[MAX + 1];
+pii p[MAX + 1];
 
 ll sum(int pos) {
-    ll ret = 0;
+    int ret;
     while(pos > 0) {
         ret += tree[pos];
-        pos -= pos & -pos;
+        pos -= (pos & -pos);
     }
     return ret;
 }
 
-ll update(int pos, ll val) {
-    
+void add(int pos, int val) {
+    while(pos < MAX) {
+        tree[pos] += val;
+        pos += (pos & -pos);
+    }
 }
 
 int main(){
@@ -34,7 +38,13 @@ int main(){
 #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
 #endif
+    cin >> n;
+    REP(i, 1, n) cin >> p[i].first, p[i].second = i;
+    sort(p + 1, p + n + 1);
 
+    REP(i, 1, n) {
+        
+    }
 
 
     return 0;

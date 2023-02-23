@@ -12,12 +12,30 @@ using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
 
+int n;
+vector<int> vec;
+
+
 int main(){
     FAST;
 #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
 #endif
+    cin >> n;
 
+    int val;
+    rep(i, 0, n) {
+        cin >> val;
+        if(vec.empty() || val > vec.back()) {
+            vec.pb(val);
+            continue;
+        }
+
+        auto loc = lower_bound(all(vec), val);
+        *loc = val;
+    }
+
+    cout << n - vec.size();
 
     return 0;
 }
