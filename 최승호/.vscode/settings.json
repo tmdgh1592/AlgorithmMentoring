@@ -14,6 +14,16 @@
         "set": "cpp",
         "__bit_reference": "cpp",
         "__locale": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "regex": "cpp",
+        "queue": "cpp",
+        "__node_handle": "cpp",
+        "array": "cpp",
+        "forward_list": "cpp",
+        "stack": "cpp",
+        "string_view": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "filesystem": "cpp"
     }    
 }

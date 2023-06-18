@@ -23,6 +23,34 @@ using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
 
+int n, k;
+ll satisfaction[100001];
+ll dp[100001];
+
+int solve(int idx) {
+    if (idx > n) return 0;
+    if (dp[idx] != -1) return dp[idx];
+    
+    int eat = 0;
+    int total = 0;
+    int lo = idx, hi = idx;
+    int next = hi;
+    while(lo <= hi && hi <= n) {
+        total = satisfaction[hi] - satisfaction[lo - 1];
+        if (total >= k) {
+            eat = total - k;
+            break;
+        } else { 
+            hi++;
+            next++;
+        }
+    }
+
+    int result = max(solve(idx + 1), eat + solve(next + 1));
+    return dp[idx] = result;
+}
+
+
 int main(){
     FAST;
 #ifndef ONLINE_JUDGE
@@ -30,7 +58,16 @@ int main(){
     freopen("input.txt", "r", stdin);
 #endif
 
+cin >> n >> k;
 
+REP(i, 1, n) {
+    cin >> satisfaction[i];
+    satisfaction[i] += satisfaction[i-1];
+}
+memset(dp, -1, sizeof(dp));
+
+int answer = solve(1);
+cout << answer << endl;
 
 #ifndef ONLINE_JUDGE
     cout << endl << "elapsed time: " << static_cast<double>(clock() - start) / CLOCKS_PER_SEC << "ms" << endl;

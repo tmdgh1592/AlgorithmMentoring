@@ -30,7 +30,17 @@ int main(){
     freopen("input.txt", "r", stdin);
 #endif
 
+string input;
+cin >> input;
+auto e = input.length() / 10;
+if (input.length() % 10 != 0) e += 1;
 
+REP(i, 1, e) {
+    int start = (i - 1) * 10;
+    int t = input.length() - (i - 1) * 10;
+    int size = min(10, t);
+    cout << input.substr(start, size) << endl;
+}
 
 #ifndef ONLINE_JUDGE
     cout << endl << "elapsed time: " << static_cast<double>(clock() - start) / CLOCKS_PER_SEC << "ms" << endl;

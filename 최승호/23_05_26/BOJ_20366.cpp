@@ -23,6 +23,9 @@ using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
 
+int n;
+vector<int> vec;
+
 int main(){
     FAST;
 #ifndef ONLINE_JUDGE
@@ -30,7 +33,29 @@ int main(){
     freopen("input.txt", "r", stdin);
 #endif
 
+cin >> n;
+vec.resize(n);
+rep(i, 0, n) cin >> vec[i];
+sort(all(vec)); // 2 3 5 5 9
 
+int res = INF;
+rep(i, 0, n - 3){
+    rep(j, i + 3, n){
+        int left = i + 1, right = j - 1;
+        while(left < right){
+            int sum = vec[i] + vec[j] - vec[left] - vec[right];
+            res = min(res, abs(sum));
+            if(sum > 0) ++left;
+            else if(sum < 0) --right;
+            else {
+                cout << 0 << endl;
+                return 0;
+            }
+        }
+    }
+}
+
+cout << res << endl;
 
 #ifndef ONLINE_JUDGE
     cout << endl << "elapsed time: " << static_cast<double>(clock() - start) / CLOCKS_PER_SEC << "ms" << endl;

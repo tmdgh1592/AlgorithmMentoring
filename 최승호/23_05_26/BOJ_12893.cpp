@@ -22,6 +22,26 @@ using namespace std;
 
 typedef long long ll;
 typedef unsigned long long ull;
+int n, m;
+vector<int> graph[2000001];
+int color[2001];
+int RED = 1, BLUE = 2;
+bool flag = false;
+
+void dfs(int node) {
+    if(!color[node]) color[node] = RED;
+    
+    for(auto next : graph[node]) {
+        if(color[node] == color[next]) {
+            flag = true;
+            return;
+        }
+        if(color[next]) continue;
+
+        color[node] == RED ? color[next] = BLUE : color[next] = RED;
+        dfs(next);
+    }
+}
 
 int main(){
     FAST;
@@ -30,7 +50,17 @@ int main(){
     freopen("input.txt", "r", stdin);
 #endif
 
-
+cin >> n >> m;
+int start_node = 0;
+rep(i, 0, m){
+    int u, v;
+    start_node = u;
+    cin >> u >> v;
+    graph[u].pb(v);
+    graph[v].pb(u);
+}
+dfs(start_node);
+cout << !flag ? 0 : 1;
 
 #ifndef ONLINE_JUDGE
     cout << endl << "elapsed time: " << static_cast<double>(clock() - start) / CLOCKS_PER_SEC << "ms" << endl;
