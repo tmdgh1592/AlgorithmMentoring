@@ -73,3 +73,5 @@ PRO_문제이름으로 통일합니다. 예시 : 문제 이름이 슈퍼키일 �
 21회차(01월 24일) 활동 내용 : 펜윅트리 (point update + range query, range update + point query, range update + range query), count inversions, 숙제 : 1365, 1517, 10090, 7578, 16975, 2820, 2835, 17353
 
 22회차(02월 12일) 활동 내용 : disjoint set, minimum spanning tree, dijkstra, 숙제 : BOJ-1717, 1976, 3830, 1197, 1753, 1916, 1504, 14621, 1185
+
+23회차(05월 05일) 활동 내용 : segment tree with lazy propagation using non-recursive call, 숙제 : BOJ-19236, 19237, 5465, 2238, 1826, 20010, 2176, 1395, 2820, 14245
